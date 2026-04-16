@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | juztrezky Portfolio</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page" class="auth-container">
+        <div class="login-box">
+            <h1>Admin Login</h1>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="btn-login">Sign In</button>
+            </form>
+            <div id="login-error" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-page" style="display: none;">
+        <div class="admin-navbar">
+            <div class="admin-nav-content">
+                <h1>Admin Dashboard</h1>
+                <button id="logout-btn" class="btn-logout">Logout</button>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <div class="admin-header">
+                <h1>Manage Projects</h1>
+                <button id="add-project-btn" class="btn-add">+ Add New Project</button>
+            </div>
+
+            <div class="projects-table-container">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>URL</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projects-tbody">
+                        <tr><td colspan="4" class="loading">Loading projects...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Add New Project</h2>
+            <form id="projectForm">
+                <div class="form-group">
+                    <label for="title">Project Title</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="url">Project URL</label>
+                    <input type="url" id="url" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image URL</label>
+                    <input type="url" id="image">
+                </div>
+                <button type="submit" class="btn-save">Save Project</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
